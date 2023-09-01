@@ -1,5 +1,8 @@
 import csv
 from guitar import Guitar
+from operator import itemgetter
+
+FILENAME = "guitars.csv"
 
 
 def load_guitars(filename):
@@ -33,31 +36,26 @@ def save_guitars(filename, guitars):
 
 def main():
     """Guitar program, using Guitar class."""
-    guitars = load_guitars("guitars.csv")
+    guitars = load_guitars(FILENAME)
 
     print("My guitars!")
     name = input("Name: ")
     while name != "":
         year = int(input("Year: "))
         cost = float(input("Cost: $"))
-        guitar_to_add = Guitar(name, year, cost)
-        guitars.append(guitar_to_add)
-        print(guitar_to_add, "added.")
+        guitar = Guitar(name, year, cost)
+        guitars.append(guitar)
+        print(guitar, "added.")
         name = input("Name: ")
 
     print("\n... snip ...\n")
 
-    guitars.append(Guitar("Gibson L-5 CES", 1922, 16035.40))
-    guitars.append(Guitar("Line 6 JTV-59", 2010, 1512.9))
+    guitars.sort(key=lambda guitar: guitar.year)
 
-    if guitars:
-        guitars.sort(key=lambda x: x.year)  # Sort by year (oldest to newest)
-        print("These are my guitars:")
-        for i, guitar in enumerate(guitars, 1):
-            vintage_string = " (vintage)" if guitar.is_vintage() else ""
-            print(f"Guitar {i}: {guitar.name}, {guitar.year}, worth ${guitar.cost:,.2f}{vintage_string}")
-    else:
-        print("No guitars :( Quick, go and buy one!")
+    print("These are my guitars:")
+    for i, guitar in enumerate(guitars, 1):
+        vintage_string = " (vintage)" if guitar.is_vintage() else ""
+        print(f"Guitar {i}: {guitar.name}, {guitar.year}, worth ${guitar.cost:,.2f}{vintage_string}")
 
     save_guitars("guitars.csv", guitars)
 
