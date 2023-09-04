@@ -4,7 +4,7 @@ import datetime
 class Project:
     def __init__(self, name="", start_date="", priority=int, cost_estimate=float, completion_percentage=float):
         self.name = name
-        self.start_date = datetime.datetime.strptime(start_date, __format="%d/%m/%y").date()
+        self.start_date = start_date
         self.priority = priority
         self.cost_estimate = cost_estimate
         self.completion_percentage = completion_percentage
