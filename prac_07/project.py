@@ -10,11 +10,11 @@ class Project:
         self.completion_percentage = completion_percentage
 
     def __str__(self):
-        return f"{self.name}, start: {self.start_date}, priority {self.priority}, estimate: {self.cost_estimate:,.2f}, " \
-               f"completion: {self.completion_percentage}"
+        return f"{self.name}, start: {self.start_date}, priority {self.priority}, estimate: {self.cost_estimate}, " \
+               f"completion: {self.completion_percentage}%"
 
     def __repr__(self):
-        return f"{self.name}, {self.start_date}, {self.priority}, {self.cost_estimate:,.2f}, {self.completion_percentage}"
+        return f"{self.name}, {self.start_date}, {self.priority}, {self.cost_estimate}, {self.completion_percentage}"
 
     def is_completed(self):
         return int(self.completion_percentage) == 100
@@ -23,7 +23,7 @@ class Project:
         return self.priority <= other.priortiy
 
     def compare_date(self, new_date):
-        new_date = datetime.datetime.strptime(new_date, __format="%d/%m/%y").date()
+        new_date = datetime.datetime.strptime(new_date, "%d/%m/%Y").date()
         return self.start_date >= new_date
 
     def update_percentage(self, new_percent):
