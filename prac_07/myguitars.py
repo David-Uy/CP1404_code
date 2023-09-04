@@ -50,7 +50,7 @@ def main():
 
     print("\n... snip ...\n")
 
-    guitars.sort(key=lambda guitar: guitar.year)
+    guitars.sort()
 
     print("These are my guitars:")
     for i, guitar in enumerate(guitars, 1):
