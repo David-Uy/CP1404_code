@@ -28,7 +28,7 @@ def main():
         reflection = parts[2] == "Yes"
         # Construct a ProgrammingLanguage object using the elements
         # year should be an int
-        language = ProgrammingLanguage(parts[0], parts[1], reflection, int(parts[3]))
+        language = ProgrammingLanguage(parts[0], parts[1], reflection, int(parts[4]))
         # Add the language we've just constructed to the list
         languages.append(language)
     # Close the file as soon as we've finished reading it
@@ -37,9 +37,6 @@ def main():
     # Loop through and display all languages (using their str method)
     for language in languages:
         print(language)
-
-
-main()
 
 
 def using_csv():
@@ -85,4 +82,6 @@ def using_csv_namedtuple():
         print(language.name, 'was released in', language.year)
         print(repr(language))
 
+
 # using_csv_namedtuple()
+main()
