@@ -9,8 +9,6 @@ class ProgrammingLanguage:
         self.pointer_arithmetic = pointer_arithmetic
         self.year = year
 
-
-
     def is_dynamic(self):
         """Determine if language is dynamically typed."""
         return self.typing == "Dynamic"
