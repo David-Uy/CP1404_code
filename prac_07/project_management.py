@@ -4,7 +4,7 @@ from project import Project
 FILENAME = "projects.txt"
 
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n" \
-       "- (F)ilter projects by date\n- (A)dd new project\n- (U)pdate project\n-(Q)uit"
+       "- (F)ilter projects by date\n- (A)dd new project\n- (U)pdate project\n- (Q)uit"
 
 
 def main():
@@ -102,7 +102,7 @@ def save_projects(filename, projects):
     with open(filename, 'w') as file:
         file.write("Name\tStart Date\tPriority\tEstimate\tCompletion\n")
         for project in projects:
-            file.write(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t"
+            file.write(f"{project.name}\t{project.start_date}\t"
                        f"{project.priority}\t{project.cost_estimate:.2f}\t{project.completion_percentage}\n")
 
 
